@@ -3,6 +3,7 @@ import MarvelView from "../components/MarvelView";
 import Section from "../components/Section";
 import AOS from "aos";
 import "aos/dist/aos.css";
+//import { getCharactersAxios } from "../utils/conexionAPI";
 
 
 
@@ -18,8 +19,10 @@ export const PaginaPrincipal = () => {
             offset: 200,
             duration: 1000,
         });
-    }, []);
 
+    }, []);
+    //getCharactersAxios("/v1/public/characters")
+    
     return (
         <>
 
