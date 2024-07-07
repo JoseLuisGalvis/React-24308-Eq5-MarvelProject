@@ -1,31 +1,25 @@
 import { useEffect, useState } from "react"
 import { getApi } from "../utils/conexionAPI"
-import {CardComicComponent} from "../components/CardComicComponent"
+import { Card } from "../components/Card"
 
 
 export const GridComics = () => {
 
+    const [comics, setComics] = useState([])
 
     useEffect(() => {
 
-        getComics()
+        getApi("/v1/public/comics").then((data) => {
+            setComics(data.results)
+        })
 
-    }, [])
-    const [comics, setComics] = useState([])
-
-    const getComics = async () => {
-        const respuesta = await getApi("/v1/public/comics")
-        const { data } = await respuesta.json()
-
-        setComics(data.results)
-    }
-    console.log(comics);
+    },[])
     return (
 
 
         <div className="comicsGrid">
             {comics.map((comic) => (
-                <CardComicComponent key={comic.id} cardContent={comic} />
+                <Card key={comic.id} cardContent={comic} />
             ))}
         </div>
     )

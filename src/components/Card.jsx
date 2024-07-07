@@ -6,9 +6,10 @@ import {
   CardTitle,
   CardText,
 } from "reactstrap";
-import PropTypes from 'prop-types';
+import CardComponent from "./CardComponent";
+//import PropTypes from 'prop-types';
 
-export const CardComicComponent = ({cardContent}) => {
+export const Card = ({cardContent}) => {
 
    const  {extension, path } = cardContent.thumbnail;
 
@@ -16,8 +17,8 @@ export const CardComicComponent = ({cardContent}) => {
     <RCard >
       <CardImg top src={`${path}.${extension}`} alt={cardContent.name} />
       <CardBody>
-        <CardTitle>{cardContent.title}</CardTitle>
-        <CardText>{cardContent.variantDescription}</CardText>
+        <CardTitle>{cardContent.name || cardContent.title}</CardTitle>
+        <CardText>{cardContent.description || cardContent.variantDescription || cardContent.endYear}</CardText>
       </CardBody>
     </RCard>
   );

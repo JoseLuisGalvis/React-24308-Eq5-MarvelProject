@@ -1,33 +1,25 @@
 import { useEffect, useState } from "react"
 import { getApi } from "../utils/conexionAPI"
-import {CardCharacterComponent} from "../components/CardCharacterComponent"
+import {Card} from "../components/Card"
 
 
 export const GridCaracteres = () => {
 
+    const [characters, setCharacters] = useState([])
 
     useEffect(() => {
 
-        getCharacters()
-
-    }, [])
-    const [characters, setCharacters] = useState([])
-
-    const getCharacters = async () => {
-        const respuesta = await getApi("/v1/public/characters")
-        const { data } = await respuesta.json()
-
-        setCharacters(data.results)
-    }
-    //console.log(characters[0].thumbnail);
+        getApi("/v1/public/characters").then((data) => {
+            setCharacters(data.results)
+        })
+    },[])    
     return (
 
-
-        <div className="charactersGrid">
+<div className="charactersGrid">
             {characters.map((character) => (
-                <CardCharacterComponent key={character.id} cardContent={character} />
+                <Card key={character.id} cardContent={character} />
             ))}
         </div>
     )
 }
-//   setCharacters(getCharactersAxios("/v1/public/characters"))  
+ 
