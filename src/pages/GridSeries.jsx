@@ -1,8 +1,32 @@
+import { useEffect, useState } from "react"
+import { getApi } from "../utils/conexionAPI"
+import {CardSerieComponent} from "../components/CardSerieComponent"
 
 
-export const GridSeries = () =>{
+export const GridSeries = () => {
 
+
+    useEffect(() => {
+
+        getSeries()
+
+    }, [])
+    const [series, setSeries] = useState([])
+
+    const getSeries = async () => {
+        const respuesta = await getApi("/v1/public/series")
+        const { data } = await respuesta.json()
+
+        setSeries(data.results)
+    }
+    console.log(series);
     return (
-        <h1>Aca va la Grilla de Series</h1>
+
+
+        <div className="comicsGrid">
+            {series.map((serie) => (
+                <CardSerieComponent key={serie.id} cardContent={serie} />
+            ))}
+        </div>
     )
 }

@@ -8,16 +8,16 @@ import {
 } from "reactstrap";
 import PropTypes from 'prop-types';
 
-const CardComponentNew = ({characterMap}) => {
+export const CardComicComponent = ({cardContent}) => {
 
-   const  {extension, path } = characterMap.thumbnail;
+   const  {extension, path } = cardContent.thumbnail;
 
   return (
     <RCard >
-      <CardImg top src={`${path}.${extension}`} alt={characterMap.name} />
+      <CardImg top src={`${path}.${extension}`} alt={cardContent.name} />
       <CardBody>
-        <CardTitle>{characterMap.name}</CardTitle>
-        <CardText>{characterMap.description}</CardText>
+        <CardTitle>{cardContent.title}</CardTitle>
+        <CardText>{cardContent.variantDescription}</CardText>
       </CardBody>
     </RCard>
   );
@@ -29,4 +29,4 @@ const CardComponentNew = ({characterMap}) => {
 //   text: PropTypes.string.isRequired,
 // };
 
-export default CardComponentNew;
+

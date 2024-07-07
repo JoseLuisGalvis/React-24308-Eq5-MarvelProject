@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getApi } from "../utils/conexionAPI"
-import CardComponentNew from "../components/CardComponentNew"
+import {CardCharacterComponent} from "../components/CardCharacterComponent"
 
 
 export const GridCaracteres = () => {
@@ -25,7 +25,7 @@ export const GridCaracteres = () => {
 
         <div className="charactersGrid">
             {characters.map((character) => (
-                <CardComponentNew key={character.id} characterMap={character} />
+                <CardCharacterComponent key={character.id} cardContent={character} />
             ))}
         </div>
     )
