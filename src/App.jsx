@@ -8,7 +8,7 @@ import "./App.css";
 //import AOS from "aos";
 import "aos/dist/aos.css";
 import './App.css';
-import { PaginaPrincipal } from "./pages/PaginaPrincipal";
+import { PaginaPrincipalCopy } from "./pages/PaginaPrincipalCopy";
 import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import { GridCaracteres } from "./pages/GridCaracteres";
 import { GridComics } from "./pages/GridComics";
@@ -41,7 +41,7 @@ const App = () => {
       <BrowserRouter>
         <Routes>
 
-          <Route path="/" element={<PaginaPrincipal />} />
+          <Route path="/" element={<PaginaPrincipalCopy />} />
           <Route path="/Characters" element={<GridCaracteres />} />
           <Route path="/Comics" element={<GridComics />} />
           <Route path="/Series" element={<GridSeries />} />
