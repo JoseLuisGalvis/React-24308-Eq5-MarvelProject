@@ -15,9 +15,9 @@ export const Card = ({cardContent}) => {
 
   return (
     <RCard >
-      <CardImg top src={`${path}.${extension}`} alt={cardContent.name} />
+      <CardImg top src={`${path}.${extension}`} alt={cardContent.name} height={"100%"}/>
       <CardBody>
-        <CardTitle>{cardContent.name || cardContent.title}</CardTitle>
+        <CardTitle tag={"h5"}>{cardContent.name || cardContent.title}</CardTitle>
         <CardText>{cardContent.description || cardContent.variantDescription || cardContent.endYear}</CardText>
       </CardBody>
     </RCard>

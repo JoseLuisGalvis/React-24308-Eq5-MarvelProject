@@ -13,6 +13,9 @@ import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
 import { GridCaracteres } from "./pages/GridCaracteres";
 import { GridComics } from "./pages/GridComics";
 import { GridSeries } from "./pages/GridSeries";
+import {DetalleCaracter} from "./pages/DetalleCaracter"
+import {DetalleSerie} from "./pages/DetalleSeries"
+import {DetalleComic} from "./pages/DetalleComic"
 
 const App = () => {
 
@@ -45,6 +48,9 @@ const App = () => {
           <Route path="/Characters" element={<GridCaracteres />} />
           <Route path="/Comics" element={<GridComics />} />
           <Route path="/Series" element={<GridSeries />} />
+          <Route path="/Characters/:id" element={<DetalleCaracter/>} />
+          <Route path="/Comics/:id" element={<DetalleComic/>} />
+          <Route path="/Series/:id" element={<DetalleSerie/>} />
         </Routes>
       </BrowserRouter>
       <Footer />
