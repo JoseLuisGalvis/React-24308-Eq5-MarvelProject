@@ -23,7 +23,7 @@ export const GridSeries = () => {
           <Row className="d-flex">
             {series.map((serie) => (
               <Col md="3" key={serie.id}>
-                <Link to={`/comics/${serie.id}`}>
+                <Link to={`/series/${serie.id}`}>
                   <Card key={serie.id} cardContent={serie} />
                 </Link>
               </Col>

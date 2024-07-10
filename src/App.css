@@ -132,7 +132,7 @@ body {
 .card {
   height: 450px;
   border-radius: 1em 2em;
-  box-shadow: 0 5px 10px rgb(195, 195, 195, 0.5);
+  box-shadow: 0 5px 10px rgba(70, 70, 70, 0.5);
   margin-bottom: 0.5em;
 }
 
