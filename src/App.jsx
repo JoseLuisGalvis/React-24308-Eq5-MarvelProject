@@ -36,8 +36,8 @@ const App = () => {
           <Route path="/Characters" element={<GridCaracteres />} />
           <Route path="/Comics" element={<GridComics />} />
           <Route path="/Series" element={<GridSeries />} />
-          <Route path="/Characters/:id" element={<DetalleCaracter/>} />
-          <Route path="/Comics/:id" element={<DetalleComic/>} />
+          <Route path="/Characters/:characterId" element={<DetalleCaracter />} />
+          <Route path="/comics/:comicId" element={<DetalleComic />} />
           <Route path="/series/:serieId" element={<DetalleSeries />} />
         </Routes>
         <Footer />
