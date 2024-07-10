@@ -11,7 +11,7 @@ import {
 const Footer = () => {
 
   return (
-    <footer id="footer" >
+    <footer >
       <Container className="footer d-flex flex-wrap flex-md-nowrap">
         <Row className="footerRow align-items-start w-100">
           <Col xs="12" className="footer-section">

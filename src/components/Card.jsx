@@ -18,7 +18,7 @@ export const Card = ({cardContent}) => {
       <CardImg top src={`${path}.${extension}`} alt={cardContent.name} height={"100%"}/>
       <CardBody>
         <CardTitle tag={"h5"}>{cardContent.name || cardContent.title}</CardTitle>
-        <CardText>{cardContent.description || cardContent.variantDescription || cardContent.endYear}</CardText>
+        <CardText>{ cardContent.endYear}</CardText>
       </CardBody>
     </RCard>
   );

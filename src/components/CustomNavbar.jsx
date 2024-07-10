@@ -1,42 +1,13 @@
 import { useState } from "react";
 import { Container, Navbar, Nav, NavItem, NavbarToggler, Collapse } from "reactstrap";
-import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
+import '../App.jsx';
 import "../App.css";
 
-const CustomNavbar = ({ comicsRef, moviesRef, charactersRef }) => {
-  const [activeSection, setActiveSection] = useState(null);
+const CustomNavbar = () => {
+  const [activeSection] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
-
-  function handleNavigation(sectionId) {
-    if (sectionId === 'comics') {
-      comicsRef.current && window.scrollTo({
-        top: comicsRef.current.offsetTop,
-        behavior: "smooth",
-      });
-      setActiveSection(sectionId);
-    } else if (sectionId === 'movies') {
-      moviesRef.current && window.scrollTo({
-        top: moviesRef.current.offsetTop,
-        behavior: "smooth",
-      });
-      setActiveSection(sectionId);
-    } else if (sectionId === 'characters') {
-      charactersRef.current && window.scrollTo({
-        top: charactersRef.current.offsetTop,
-        behavior: "smooth",
-      });
-      setActiveSection(sectionId);
-    } else {
-      const sectionElement = document.getElementById(sectionId);
-      if (sectionElement) {
-        window.scrollTo({
-          top: sectionElement.offsetTop,
-          behavior: "smooth",
-        });
-        setActiveSection(sectionId);
-      }
-    }
-  }
+  const navigate = useNavigate();
 
   const toggle = () => {
     setIsOpen(!isOpen);
@@ -49,27 +20,27 @@ const CustomNavbar = ({ comicsRef, moviesRef, charactersRef }) => {
         <Collapse isOpen={isOpen} navbar className="text-white">
           <Nav className="d-flex justify-content-center w-100">
             <NavItem className={activeSection === "inicio"? "active" : ""}>
-              <span className="nav-link" onClick={() => handleNavigation("inicio")}>
+              <span className="nav-link" onClick={() => navigate("/")}>
                 <p>Inicio</p>
               </span>
             </NavItem>
             <NavItem className={activeSection === "comics"? "active" : ""}>
-              <span className="nav-link text-white" onClick={() => handleNavigation('comics')}>
+              <span className="nav-link text-white" onClick={() => navigate("/Comics")}>
                 <p>Comics</p>
               </span>
             </NavItem>
             <NavItem className={activeSection === "movies"? "active" : ""}>
-              <span className="nav-link text-white" onClick={() => handleNavigation('movies')}>
-                <p>Movies</p>
-              </span>
-            </NavItem>
-            <NavItem className={activeSection === "characters"? "active" : ""}>
-              <span className="nav-link text-white" onClick={() => handleNavigation('characters')}>
+              <span className="nav-link text-white" onClick={() => navigate("/Characters")}>
                 <p>Characters</p>
               </span>
             </NavItem>
+            <NavItem className={activeSection === "characters"? "active" : ""}>
+              <span className="nav-link text-white" onClick={() => navigate("/Series")}>
+                <p>Series</p>
+              </span>
+            </NavItem>
             <NavItem className={activeSection === "footer"? "active" : ""}>
-              <span className="nav-link text-white" onClick={() => handleNavigation("footer")}>
+              <span className="nav-link text-white" onClick={() => navigate("/Contacto")}>
                 <p>Contacto</p>
               </span>
             </NavItem>
@@ -78,12 +49,6 @@ const CustomNavbar = ({ comicsRef, moviesRef, charactersRef }) => {
       </Navbar>
     </Container>
   );
-};
-
-CustomNavbar.propTypes = {
-  comicsRef: PropTypes.object.isRequired,
-  moviesRef: PropTypes.object.isRequired,
-  charactersRef: PropTypes.object.isRequired,
 };
 
 export default CustomNavbar;

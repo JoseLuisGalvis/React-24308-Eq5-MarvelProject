@@ -1,4 +1,3 @@
-import { useEffect, useRef } from "react";
 import CustomNavbarSuperior from "./components/CustomNavbarSuperior";
 import CustomNavbar from "./components/CustomNavbar";
 //import MarvelView from "./components/MarvelView";
@@ -9,7 +8,7 @@ import "./App.css";
 import "aos/dist/aos.css";
 import './App.css';
 import { PaginaPrincipalCopy } from "./pages/PaginaPrincipalCopy";
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { GridCaracteres } from "./pages/GridCaracteres";
 import { GridComics } from "./pages/GridComics";
 import { GridSeries } from "./pages/GridSeries";
@@ -18,10 +17,6 @@ import {DetalleSerie} from "./pages/DetalleSeries"
 import {DetalleComic} from "./pages/DetalleComic"
 
 const App = () => {
-
-  const comicsRef = useRef(null);
-  const moviesRef = useRef(null);
-  const charactersRef = useRef(null);
 
   /*useEffect(() => {
     AOS.init({
@@ -32,18 +27,11 @@ const App = () => {
   }, []);*/
 
   return (
-    <div>
-      <CustomNavbarSuperior />
-      <CustomNavbar
-
-        comicsRef={comicsRef}
-        moviesRef={moviesRef}
-        charactersRef={charactersRef}
-
-      />
-      <BrowserRouter>
+    <BrowserRouter>
+      <div>
+        <CustomNavbarSuperior />
+        <CustomNavbar/>
         <Routes>
-
           <Route path="/" element={<PaginaPrincipalCopy />} />
           <Route path="/Characters" element={<GridCaracteres />} />
           <Route path="/Comics" element={<GridComics />} />
@@ -52,9 +40,9 @@ const App = () => {
           <Route path="/Comics/:id" element={<DetalleComic/>} />
           <Route path="/Series/:id" element={<DetalleSerie/>} />
         </Routes>
-      </BrowserRouter>
-      <Footer />
-    </div>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 };
 

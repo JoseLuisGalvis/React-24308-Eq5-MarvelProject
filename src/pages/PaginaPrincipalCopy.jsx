@@ -55,14 +55,14 @@ export const PaginaPrincipalCopy = () => {
                 cardsContent={comics}
             />
             <SectionCopy
-                id="movies"
+                id="characters"
                 ref={moviesRef}
                 data-aos="fade-right"
                 title="Personajes"
                 cardsContent={characters}
             />
             <SectionCopy
-                id="characters"
+                id="series"
                 ref={charactersRef}
                 data-aos="fade-right"
                 title="Series"
