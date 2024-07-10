@@ -134,6 +134,11 @@ body {
   border-radius: 1em 2em;
   box-shadow: 0 5px 10px rgba(70, 70, 70, 0.5);
   margin-bottom: 0.5em;
+  transition: transform 0.3s; /* agregar transición para la transformación */
+}
+
+.card:hover {
+  transform: scale(1.1); /* aumentar tamaño en 20% */
 }
 
 .card img {
